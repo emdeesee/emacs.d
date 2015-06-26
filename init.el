@@ -15,7 +15,6 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-z") 'eshell)
 
-(global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-z"))
 
 (setq config-dir (file-name-directory
@@ -49,3 +48,5 @@
         mdc-ido))
 (dolist (file mdc-libs)
   (require file))
+
+(load custom-file)
