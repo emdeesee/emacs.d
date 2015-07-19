@@ -40,7 +40,20 @@
 (dolist (package-source '(("melpa-stable" . "http://stable.melpa.org/packages/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
   (add-to-list 'package-archives package-source 'append))
+
 (package-initialize)
+(unless (file-exists-p package-user-dir)
+  (package-refresh-contents))
+
+(defun require-package (package)
+  (when (and (not (package-installed-p package))
+		  (y-or-n-p (format"%s: package missing. Install?" package)))
+    (package-install package)))
+
+(let ((required '(s
+		  clojure-mode
+		  smartparens)))
+  (mapc #'require-package required))
 
 ;; Load personal customizations and things.
 (setq mdc-libs
