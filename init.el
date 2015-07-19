@@ -21,10 +21,12 @@
                   (or (buffer-file-name) load-file-name)))
 
 ;; add all subdirectories of ~/.emacs.d/site-lisp to load path
-(dolist
-    (f (directory-files (concat config-dir "site-lisp") t "\\w+"))
-  (when (file-directory-p f)
-    (add-to-list 'load-path f)))
+(let ((site-lisp (concat config-dir "site-lisp")))
+  (when (file-exists-p site-lisp)
+    (dolist
+	(f (directory-files site-lisp t "\\w+"))
+      (when (file-directory-p f)
+	(add-to-list 'load-path f)))))
 
 (add-to-list 'load-path (concat config-dir "preferences"))
 
@@ -49,4 +51,5 @@
 (dolist (file mdc-libs)
   (require file))
 
-(load custom-file)
+(when (file-exists-p custom-file)
+  (load custom-file))
