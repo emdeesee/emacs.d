@@ -56,13 +56,11 @@
   (mapc #'require-package required))
 
 ;; Load personal customizations and things.
-(setq mdc-libs
-      '(mdc-common
-        mdc-lisp
-        mdc-smartparens
-        mdc-ido))
-(dolist (file mdc-libs)
-  (require file))
+(let ((libs '(mdc-common
+	      mdc-lisp
+	      mdc-smartparens
+	      mdc-ido)))
+  (mapc #'require libs))
 
 (when (file-exists-p custom-file)
   (load custom-file))
