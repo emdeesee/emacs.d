@@ -61,7 +61,8 @@
 	      mdc-lisp
 	      mdc-smartparens
 	      mdc-ido)))
-  (mapc #'require libs))
+  (dolist (file libs)
+    (require file)))
 
 (load (concat config-dir "elisp/mdc-local.el") :noerror)
 (load custom-file :noerror)
