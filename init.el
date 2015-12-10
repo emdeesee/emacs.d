@@ -1,5 +1,5 @@
 ;; disable bothersome UI elements
-(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode blink-cursor-mode))
   (when (fboundp mode) (funcall mode -1)))
 
 (setq inhibit-splash-screen t)
