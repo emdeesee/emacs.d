@@ -15,20 +15,21 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-z") 'eshell)
 
+(global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-z"))
 
 (setq config-dir (file-name-directory
                   (or (buffer-file-name) load-file-name)))
 
-;; add all subdirectories of ~/.emacs.d/site-lisp to load path
-(let ((site-lisp (concat config-dir "site-lisp")))
+(add-to-list 'load-path (concat config-dir "elisp"))
+
+;; add all subdirectories of ~/.emacs.d/elisp to load path
+(let ((site-lisp (concat config-dir "elisp")))
   (when (file-exists-p site-lisp)
     (dolist
 	(f (directory-files site-lisp t "\\w+"))
       (when (file-directory-p f)
 	(add-to-list 'load-path f)))))
-
-(add-to-list 'load-path (concat config-dir "preferences"))
 
 ;; Set paths to custom.el and loaddefs.el
 (setq autoload-file (concat config-dir "loaddefs.el"))
