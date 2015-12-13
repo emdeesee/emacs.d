@@ -1,6 +1,7 @@
 (require 'mdc-common)
 
 (require 'clojure-mode)
+(require 'cider)
 
 (setq mdc-lisp-modes
       '(emacs-lisp-mode lisp-mode clojure-mode))
