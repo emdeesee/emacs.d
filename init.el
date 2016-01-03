@@ -52,7 +52,11 @@
     (package-install package)))
 
 (let ((required '(s
+		  cider
 		  clojure-mode
+		  company
+		  magit
+		  multiple-cursors
 		  smartparens)))
   (mapc #'require-package required))
 
@@ -61,8 +65,7 @@
 	      mdc-lisp
 	      mdc-smartparens
 	      mdc-ido)))
-  (dolist (file libs)
-    (require file)))
+  (mapc #'require libs))
 
 (load (concat config-dir "elisp/mdc-local.el") :noerror)
 (load custom-file :noerror)
