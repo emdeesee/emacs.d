@@ -38,7 +38,7 @@
 ;; Configure and initialize package.el
 (setq package-user-dir (concat config-dir "packages"))
 (require 'package)
-(dolist (package-source '(("melpa" . "http://melpa.org/packages/")
+(dolist (package-source '(("melpa" . "https://melpa.org/packages/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
   (add-to-list 'package-archives package-source 'append))
 
