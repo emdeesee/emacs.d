@@ -47,22 +47,21 @@
   (package-refresh-contents))
 
 (defun require-package (package)
-  (when (and (not (package-installed-p package))
+  (if (and (not (package-installed-p package))
 		  (y-or-n-p (format"%s: package missing. Install?" package)))
-    (package-install package)))
+      (package-install package)
+    (require package)))
 
-(let ((required '(s
-		  cider
-		  clojure-mode
-		  company
-		  magit
-		  multiple-cursors
-		  smartparens)))
-  (mapc #'require-package required))
+;; Bootstrap use-package
+(require-package 'use-package)
 
 ;; Load personal customizations and things.
 (let ((libs '(mdc-common
+	      mdc-s
 	      mdc-lisp
+	      mdc-company
+	      mdc-multiple-cursors
+	      mdc-magit
 	      mdc-smartparens
 	      mdc-ido)))
   (mapc #'require libs))
