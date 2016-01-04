@@ -70,6 +70,7 @@
 	      mdc-magit
 	      mdc-smartparens
 	      mdc-ido
+              mdc-mail
               mdc-org)))
   (mapc #'require libs))
 
