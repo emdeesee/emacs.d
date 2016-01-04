@@ -72,7 +72,8 @@
 	      mdc-ido
               mdc-code-common
               mdc-mail
-              mdc-org)))
+              mdc-org
+              mdc-shell)))
   (mapc #'require libs))
 
 (load (concat config-dir "elisp/mdc-local.el") :noerror)
