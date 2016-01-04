@@ -31,12 +31,18 @@
       (when (file-directory-p f)
 	(add-to-list 'load-path f)))))
 
+;; Create a directory outside source control for external packages, etc.
+(setq external-config-dir (expand-file-name "~/lib/emacs/"))
+(when (not (file-directory-p external-config-dir))
+  (make-directory external-config-dir :parents))
+
 ;; Set paths to custom.el and loaddefs.el
-(setq autoload-file (concat config-dir "loaddefs.el"))
-(setq custom-file (concat config-dir "custom.el"))
+(setq autoload-file (concat external-config-dir "loaddefs.el"))
+(setq custom-file (concat external-config-dir "custom.el"))
 
 ;; Configure and initialize package.el
-(setq package-user-dir (concat config-dir "packages"))
+(setq package-user-dir (concat external-config-dir "packages"))
+
 (require 'package)
 (dolist (package-source '(("melpa" . "https://melpa.org/packages/")
                           ("marmalade" . "http://marmalade-repo.org/packages/")))
