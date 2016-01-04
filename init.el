@@ -46,13 +46,13 @@
 (unless (file-exists-p package-user-dir)
   (package-refresh-contents))
 
+;; Bootstrap use-package if needed
 (defun require-package (package)
-  (if (and (not (package-installed-p package))
+  (when (and (not (package-installed-p package))
 		  (y-or-n-p (format"%s: package missing. Install?" package)))
-      (package-install package)
-    (require package)))
+      (package-install package))
+  (require package))
 
-;; Bootstrap use-package
 (require-package 'use-package)
 
 ;; Load personal customizations and things.
