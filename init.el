@@ -68,6 +68,7 @@
 	      mdc-company
 	      mdc-multiple-cursors
 	      mdc-magit
+              mdc-git-gutter
 	      mdc-smartparens
 	      mdc-ido
               mdc-code-common
