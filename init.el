@@ -69,7 +69,8 @@
 	      mdc-multiple-cursors
 	      mdc-magit
 	      mdc-smartparens
-	      mdc-ido)))
+	      mdc-ido
+              mdc-org)))
   (mapc #'require libs))
 
 (load (concat config-dir "elisp/mdc-local.el") :noerror)
