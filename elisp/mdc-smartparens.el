@@ -2,6 +2,7 @@
 (require 'mdc-lisp)
 
 (use-package smartparens
+  :ensure t
   :config
   (progn
     (use-package smartparens-config)
