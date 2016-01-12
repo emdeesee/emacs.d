@@ -26,4 +26,6 @@
 
   :config (progn
             (define-key git-gutter+-mode-map (kbd "C-x g") git-gutter-submap)
+            (setq-default git-gutter+-modified-sign "|"
+                          git-gutter+-deleted-sign "‾")
             (global-git-gutter+-mode 1)))
