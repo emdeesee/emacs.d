@@ -6,7 +6,8 @@
 (use-package slime
   :ensure t
   :config (progn
-            (setq inferior-lisp-program "/usr/bin/sbcl")))
+            (setq inferior-lisp-program "/usr/bin/sbcl")
+            (slime-setup '(slime-fancy slime-asdf))))
 
 (setq mdc-lisp-modes
       '(emacs-lisp-mode lisp-mode clojure-mode))
