@@ -63,7 +63,6 @@
 
 ;; Load personal customizations and things.
 (let ((libs '(mdc-common
-	      mdc-s
 	      mdc-lisp
 	      mdc-company
 	      mdc-multiple-cursors

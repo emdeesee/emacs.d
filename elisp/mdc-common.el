@@ -6,7 +6,7 @@
          (concat privilege (ido-read-file-name "File :")))
       (find-alternate-file (concat privilege (buffer-file-name))))))
 
-(require 's)
+(use-package s :ensure t)
 
 (defun insert-uuid ()
   (interactive)
