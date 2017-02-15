@@ -1,7 +1,8 @@
 (provide 'mdc-code-common)
 (require 'mdc-common)
 (require 'mdc-lisp)
-(require 'highlight-current-line)
+(use-package highlight-current-line
+  :ensure t)
 
 (highlight-current-line-set-bg-color "aliceblue")
 
