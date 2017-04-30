@@ -3,6 +3,7 @@
   (when (fboundp mode) (funcall mode -1)))
 
 (setq inhibit-splash-screen t)
+(setq-default indent-tabs-mode nil)
 
 ;; prefer y/n keypress to typing 'yes' or 'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
