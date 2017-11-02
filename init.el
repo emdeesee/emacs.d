@@ -83,3 +83,4 @@
 (require 'mdc-local nil :noerror)
 (load custom-file :noerror)
 
+(put 'erase-buffer 'disabled nil)
