@@ -64,4 +64,11 @@ form as the second argument in the current.
       (message "%s copied" new-kill-string)
       (kill-new new-kill-string))))
 
+(defun mdc/play-sound (sound-path)
+  (start-process "play" nil "play" (expand-file-name sound-path)))
+
+(defun mdc/notify (summary message icon)
+  (start-process "notify" nil "notify-send"
+                 (format "--icon=%s" icon) summary message))
+
 (provide 'mdc-common)
