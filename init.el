@@ -80,6 +80,6 @@
               mdc-markdown)))
   (mapc #'require libs))
 
-(load (concat config-dir "elisp/mdc-local.el") :noerror)
+(require 'mdc-local nil :noerror)
 (load custom-file :noerror)
 
