@@ -8,3 +8,6 @@ mdc-local.el
 *.\#*
 url
 eshell/*
+tramp
+.mc-lists.el
+org-clock-save.el
