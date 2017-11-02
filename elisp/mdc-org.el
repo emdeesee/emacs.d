@@ -29,7 +29,7 @@
         `(("t" "Todo" entry (file+headline ,organizer "Tasks")
           "* TODO %?\n  %i\n  %a")
           ("a" "Appointment" entry (file+headline ,organizer "Events")
-           "* %? %^T %^{Description}p %^{Location}p %^{Summary}p %^g")
+           "* %?\n%^T %^{Description}p %^{Location}p %^{Summary}p %^g")
           ("n" "Note" entry (file+datetree ,org-default-notes-file)
            "* %?\n  %i\n  %a")
           ("j" "Journal" entry (file+datetree ,journal)
