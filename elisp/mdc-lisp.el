@@ -8,7 +8,7 @@
   :ensure t
   :config (progn
             (setq inferior-lisp-program
-                  (if (fboundp 'mdc/*inferior-lisp-program*)
+                  (if (boundp 'mdc/*inferior-lisp-program*)
                       mdc/*inferior-lisp-program*
                     "/usr/bin/sbcl"))
             (slime-setup '(slime-fancy slime-asdf))))
