@@ -3,7 +3,8 @@
 (setq org-directory "~/Org/"
       org-startup-indented t
       org-hide-leading-stars t
-      org-agenda-files (list org-directory))
+      org-agenda-files (list org-directory)
+      org-todo-keywords '((sequence "TODO" "BLOCKED" "|" "DONE")))
 
 (add-to-list 'org-agenda-files org-directory)
 
@@ -38,5 +39,21 @@
            "* %^{Title}\n  %i\n %a")
           ("b" "Bookmark" entry (file+headline ,journal "Bookmarks")
            "* %^{Title}\n  %U\n  %i\n %^{URL}"))))
+
+;; Time tracking
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+
+(defun mdc/org-clocktable-indent-string (level)
+  (if (= level 1)
+      ""
+    (let ((str "^"))
+      (while (> level 2)
+        (setq level (1- level)
+              str (concat str "--")))
+      (concat str "-> "))))
+
+(advice-add 'org-clocktable-indent-string
+            :override #'mdc/org-clocktable-indent-string)
 
 (provide 'mdc-org)
