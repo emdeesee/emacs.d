@@ -63,7 +63,9 @@
 (require-package 'use-package)
 
 ;; Load personal customizations and things.
-(let ((libs '(mdc-common
+(let ((libs '(mdc-util
+              mdc-common
+              mdc-git
 	      mdc-lisp
 	      mdc-company
 	      mdc-multiple-cursors

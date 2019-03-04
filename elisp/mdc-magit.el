@@ -8,7 +8,8 @@
 (setq my/magit-keymap (let ((map (make-sparse-keymap))
                             (keys `(("!" . magit-status)
                                     ("?" . magit-file-popup)
-                                    ("b" . magit-blame))))
+                                    ("b" . magit-blame)
+                                    ("g" . my/git-grep))))
                         (dolist (k keys map)
                           (define-key map (car k) (cdr k)))))
 
