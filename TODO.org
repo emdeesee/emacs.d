@@ -1,0 +1,3 @@
+* TODO Improve Common Lisp completion
+Seems to only be using strings seen in buffer
+* TODO Better separation between local and universal settings
