@@ -3,14 +3,14 @@
   :ensure t)
 
 ;; TODO Limit keys to appropriate buffers
-(defconst my/magit-prefix "\C-cg")
+(defconst mdc/magit-prefix "\C-cg")
 
-(setq my/magit-keymap (let ((map (make-sparse-keymap))
+(setq mdc/magit-keymap (let ((map (make-sparse-keymap))
                             (keys `(("!" . magit-status)
                                     ("?" . magit-file-popup)
                                     ("b" . magit-blame)
-                                    ("g" . my/git-grep))))
+                                    ("g" . mdc/git-grep))))
                         (dolist (k keys map)
                           (define-key map (car k) (cdr k)))))
 
-(global-set-key my/magit-prefix my/magit-keymap)
+(global-set-key mdc/magit-prefix mdc/magit-keymap)

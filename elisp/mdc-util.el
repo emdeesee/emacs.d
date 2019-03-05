@@ -2,7 +2,7 @@
 (use-package s :ensure t)
 (require 'cl-format)
 
-(defmacro my/in-directory (dir &rest body)
+(defmacro mdc/in-directory (dir &rest body)
   "Change to directory DIR, and evaluate BODY there like `progn'."
   (declare (indent defun))
   `(let ((current-dir default-directory))
