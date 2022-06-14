@@ -1,5 +1,5 @@
 (provide 'mdc-git)
-(require 'cl-format)
+(use-package cl-format :ensure t)
 
 (defun mdc/git-repo-root ()
   (with-temp-buffer
