@@ -4,13 +4,27 @@
       org-startup-indented t
       org-hide-leading-stars t
       org-agenda-files (list org-directory)
-      org-todo-keywords '((sequence "TODO" "BLOCKED" "|" "DONE")))
+      org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p@/!)" "|" "DONE(d!)")
+                          (sequence  "HOLD(h@/!)" "BLOCKED(b@/!)" "|" "CANCELLED(c!)"))
+      org-todo-keyword-faces '(("TODO" . (:foreground "deep sky blue"))
+                               ("PROG" . (:foreground "medium violet red" :weight bold))
+                               ("DONE" . (:foreground "forest green"))
+                               ("HOLD" . (:foreground "gold"))
+                               ("BLOCKED" . (:foreground "red" :weight bold))
+                               ("CANCELLED" . (:foreground "gray50")))
+      org-agenda-custom-commands '(("n" "Personal Backlog"
+                                    ((agenda "" nil)
+                                     (todo "PROG")
+                                     (todo "NEXT")
+                                     (todo "TODO")
+                                     (todo "BLOCKED"))
+                                    nil)))
 
 (add-to-list 'org-agenda-files org-directory)
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
-(setq org-agenda-diary-file "~/Org/diary.org")
+(setq org-agenda-diary-file (concat org-directory "dairy.org"))
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'org-mode-hook 'flyspell-mode)
