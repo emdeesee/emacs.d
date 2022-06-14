@@ -11,3 +11,5 @@ eshell/*
 tramp
 .mc-lists.el
 org-clock-save.el
+bbdb
+transient/*
