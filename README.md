@@ -17,7 +17,7 @@ Local, installation-specific code lives in ```elisp/mdc-local.el```. This file i
 External dependencies, such as packages loaded through package system, repositories cloned from GitHub, etc., are put in an outside directory, ```~/lib/emacs/``` to minimize interaction with revision control.
 
 ## License
-Copyright © 2017 Michael Cornelius
+Copyright © 2022 Michael Cornelius
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
