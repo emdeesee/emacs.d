@@ -45,8 +45,7 @@
 (setq package-user-dir (concat external-config-dir "packages"))
 
 (require 'package)
-(dolist (package-source '(("melpa" . "https://melpa.org/packages/")
-                          ("marmalade" . "http://marmalade-repo.org/packages/")))
+(dolist (package-source '(("melpa" . "https://melpa.org/packages/")))
   (add-to-list 'package-archives package-source 'append))
 
 (package-initialize)
