@@ -5,7 +5,7 @@
   (with-temp-buffer
     (let ((result
            (call-process "git" nil (current-buffer) nil "rev-parse" "--show-toplevel")))
-      (values (if (zerop result) t nil) (s-trim (buffer-string))))))
+      (list (if (zerop result) t nil) (s-trim (buffer-string))))))
 
 (autoload 'grep-read-regexp "grep")
 
@@ -28,6 +28,7 @@ PATHSPEC to limit the search."
   (let ((git-root (mdc/git-repo-root)))
     (if (not (car git-root))
         (message "%s: not a git repo" (default-dir))
-      (in-directory (cadr git-root)
+      (with-temp-buffer
+        (cd (cadr git-root))
         (compile (mdc/-git-grep-command regexp pathspec))))))
 
