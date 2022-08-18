@@ -13,3 +13,5 @@ tramp
 org-clock-save.el
 bbdb
 transient/*
+server/*
+bookmarks
