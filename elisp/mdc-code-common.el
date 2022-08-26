@@ -5,7 +5,8 @@
 (defun common-coding-config ()
   (setq-local whitespace-style '(face trailing tabs))
   (hl-line-mode 1)
-  (whitespace-mode 1))
+  (whitespace-mode 1)
+  (display-line-numbers-mode 1))
 
 (let ((coding-modes '(c-mode-common
                       python-mode
