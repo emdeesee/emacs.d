@@ -12,6 +12,7 @@
                       mdc/*inferior-lisp-program*
                     "/usr/bin/sbcl"))
             (slime-setup '(slime-fancy slime-asdf))))
+(use-package rainbow-delimiters :ensure t)
 
 (setq mdc-lisp-modes
       '(emacs-lisp-mode lisp-mode clojure-mode))
@@ -19,3 +20,5 @@
 (defun add-lisp-hook (func)
   (add-hooks mdc-lisp-modes func))
 
+(add-lisp-hook (lambda ()
+                 (rainbow-delimiters-mode)))
