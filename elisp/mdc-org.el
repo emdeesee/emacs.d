@@ -26,8 +26,10 @@
 
 (setq org-agenda-diary-file (concat org-directory "dairy.org"))
 
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
-(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'org-mode-hook (lambda ()
+                           (interactive)
+                           (flyspell-mode 1)
+                           (visual-line-mode 1)))
 
 (let ((bindings '(("\C-cl" . org-store-link)
                   ("\C-ca" . org-agenda)
