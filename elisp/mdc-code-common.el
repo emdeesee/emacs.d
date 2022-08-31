@@ -10,7 +10,8 @@
 
 (let ((coding-modes '(c-mode-common
                       python-mode
-                      tcl-mode)))
+                      tcl-mode
+                      yaml-mode)))
   (add-hooks coding-modes 'common-coding-config))
 
 (add-lisp-hook 'common-coding-config)
