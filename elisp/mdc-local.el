@@ -67,6 +67,7 @@ the format HH:MM to a decimal value of hours."
     (progn
       (setq mdc/*inferior-lisp-program* "c:/users/mdcornelius/AppData/Local/hrlconda/Library/bin/sbcl.exe")
       (setq magit-git-executable "c:/Program Files/Git/bin/git.exe")
+      (setq find-program "c:/msys64/usr/bin/find.exe") ; fix find-dired on windows
 
       ;; Put unix-impersonation tools at the end of PATH to
       ;; specifically not get in the way of the native openssl
