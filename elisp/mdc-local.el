@@ -65,7 +65,7 @@ the format HH:MM to a decimal value of hours."
 ;;; Find things in Windows
 (if (eq system-type 'windows-nt)
     (progn
-      (setq mdc/*inferior-lisp-program* "c:/opt/sbcl-2.2.6/sbcl.exe")
+      (setq mdc/*inferior-lisp-program* "c:/users/mdcornelius/AppData/Local/hrlconda/Library/bin/sbcl.exe")
       (setq magit-git-executable "c:/Program Files/Git/bin/git.exe")
 
       ;; Put unix-impersonation tools at the end of PATH to
