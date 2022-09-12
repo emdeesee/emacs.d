@@ -68,9 +68,9 @@ the format HH:MM to a decimal value of hours."
       (setq mdc/*inferior-lisp-program* "c:/opt/sbcl-2.2.6/sbcl.exe")
       (setq magit-git-executable "c:/Program Files/Git/bin/git.exe")
 
-      ; Put unix-impersonation tools at the end of PATH to
-      ; specifically not get in the way of the native openssl
-      ; installation.
+      ;; Put unix-impersonation tools at the end of PATH to
+      ;; specifically not get in the way of the native openssl
+      ;; installation.
       (setenv "PATH"
               (concat
                (getenv "PATH")
