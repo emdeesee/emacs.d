@@ -62,25 +62,28 @@ the format HH:MM to a decimal value of hours."
   (conda-env-initialize-eshell))
 
 
-;;; Find things in Windows
-(if (eq system-type 'windows-nt)
-    (progn
-      (setq mdc/*inferior-lisp-program* "c:/users/mdcornelius/AppData/Local/hrlconda/Library/bin/sbcl.exe")
-      (setq magit-git-executable "c:/Program Files/Git/bin/git.exe")
-      (setq find-program "c:/msys64/usr/bin/find.exe") ; fix find-dired on windows
+;;; system-type specific stuff.
+(cond
+ ((eq system-type 'windows-nt)
+  (setq mdc/*inferior-lisp-program* "c:/users/mdcornelius/AppData/Local/hrlconda/Library/bin/sbcl.exe")
+  (setq magit-git-executable "c:/Program Files/Git/bin/git.exe")
+  (setq find-program "c:/msys64/usr/bin/find.exe") ; fix find-dired on windows
 
-      ;; Put unix-impersonation tools at the end of PATH to
-      ;; specifically not get in the way of the native openssl
-      ;; installation.
-      (setenv "PATH"
-              (concat
-               (getenv "PATH")
-               (cl-format nil ";~{~a~^;~}"
-                          '("c:/msys64/mingw64/bin"
-                            "c:/Program Files/Git/bin"
-                            "c:/msys64/usr/bin/"))))
-      (add-to-list 'exec-path "c:/Program Files/Git/bin" 'append)
-      (add-to-list 'exec-path "c:/msys64/usr/bin/" 'append)
-      (add-to-list 'exec-path "c:/msys64/mingw64/bin/" 'append)
+  ;; Put unix-impersonation tools at the end of PATH to
+  ;; specifically not get in the way of the native openssl
+  ;; installation.
+  (setenv "PATH"
+          (concat
+           (getenv "PATH")
+           (cl-format nil ";~{~a~^;~}"
+                      '("c:/msys64/mingw64/bin"
+                        "c:/Program Files/Git/bin"
+                        "c:/msys64/usr/bin/"))))
+  (add-to-list 'exec-path "c:/Program Files/Git/bin" 'append)
+  (add-to-list 'exec-path "c:/msys64/usr/bin/" 'append)
+  (add-to-list 'exec-path "c:/msys64/mingw64/bin/" 'append)
 
-      (mdc/-configure-ispell)))
+  (mdc/-configure-ispell))
+
+ ((eq system-type 'darwin)
+  (setq ispell-program-name "aspell")))
