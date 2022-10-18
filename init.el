@@ -78,7 +78,8 @@
               mdc-shell
               mdc-erc
               mdc-gud
-              mdc-markdown)))
+              mdc-markdown
+              mdc-yaml)))
   (mapc #'require libs))
 
 (require 'mdc-local nil :noerror)
