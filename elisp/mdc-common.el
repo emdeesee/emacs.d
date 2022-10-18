@@ -7,6 +7,7 @@
 (global-set-key (kbd "C-c f !") (rage! "!"))
 
 (use-package tron-legacy-theme
+  :ensure t
   :config
   (setq tron-legacy-theme-vivid-cursor t)
   (load-theme 'tron-legacy t))
