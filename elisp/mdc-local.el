@@ -57,7 +57,9 @@ the format HH:MM to a decimal value of hours."
 ;;; Conda (WIP)
 (use-package conda :ensure t
   :config
-  (setq conda-env-home-directory (expand-file-name "~/appdata/Local/hrlconda"))
+  (setq
+   conda-anaconda-home (expand-file-name "~/opt/hrlconda/")
+   conda-env-home-directory (expand-file-name "~/.conda/"))
   (conda-env-initialize-interactive-shells)
   (conda-env-initialize-eshell))
 
@@ -86,4 +88,11 @@ the format HH:MM to a decimal value of hours."
   (mdc/-configure-ispell))
 
  ((eq system-type 'darwin)
-  (setq ispell-program-name "aspell")))
+  (setq ispell-program-name "aspell"
+        mdc/*inferior-lisp-program* (expand-file-name "~/opt/hrlconda/bin/sbcl")
+        python-black-command (expand-file-name "~/opt/hrlconda/bin/black"))
+  (eval-after-load "flyspell"
+    '(progn
+       (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
+       (define-key flyspell-mouse-map [mouse-3] #'undefined)))))
+
