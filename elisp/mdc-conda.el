@@ -15,3 +15,14 @@
   (add-function :filter-return eshell-prompt-function #'prepend-conda-env '((name . conda-env)))
 
 (provide 'mdc-conda)
+
+;; Splice environment into mode line.
+(setq mode-line-conda-env
+      (list 'conda-env-current-name (list "(" 'conda-env-current-name ")") "")))
+
+(setq-default mode-line-format
+              (append
+               (cl-subseq mode-line-format 0 6)
+               (list 'mode-line-conda-env)
+               (cl-subseq mode-line-format 6)))
+
