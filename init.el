@@ -4,6 +4,7 @@
 
 (setq inhibit-splash-screen t)
 (setq-default indent-tabs-mode nil)
+(setq-default eval-expression-print-length 256)
 
 ;; prefer y/n keypress to typing 'yes' or 'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
