@@ -54,16 +54,6 @@ the format HH:MM to a decimal value of hours."
         ispell-local-dictionary "en_US"
         ispell-local-dictionary-alist '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8))))
 
-;;; Conda (WIP)
-(use-package conda :ensure t
-  :config
-  (setq
-   conda-anaconda-home (expand-file-name "~/opt/hrlconda/")
-   conda-env-home-directory (expand-file-name "~/.conda/"))
-  (conda-env-initialize-interactive-shells)
-  (conda-env-initialize-eshell))
-
-
 ;;; system-type specific stuff.
 (cond
  ((eq system-type 'windows-nt)

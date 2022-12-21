@@ -79,7 +79,8 @@
               mdc-erc
               mdc-gud
               mdc-markdown
-              mdc-yaml)))
+              mdc-yaml
+              mdc-conda)))
   (mapc #'require libs))
 
 (require 'mdc-local nil :noerror)
