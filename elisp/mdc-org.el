@@ -4,7 +4,7 @@
       org-startup-indented t
       org-hide-leading-stars t
       org-agenda-files (list org-directory)
-      org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p@/!)" "|" "DONE(d!)")
+      org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p!)" "|" "DONE(d!)")
                           (sequence  "HOLD(h@/!)" "BLOCKED(b@/!)" "|" "CANCELLED(c!)"))
       org-todo-keyword-faces '(("TODO" . (:foreground "deep sky blue"))
                                ("PROG" . (:foreground "medium violet red" :weight bold))
