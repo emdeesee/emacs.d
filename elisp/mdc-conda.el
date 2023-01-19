@@ -14,8 +14,6 @@
 (with-eval-after-load 'em-prompt
   (add-function :filter-return eshell-prompt-function #'prepend-conda-env '((name . conda-env)))
 
-(provide 'mdc-conda)
-
 ;; Splice environment into mode line.
 (setq mode-line-conda-env
       (list 'conda-env-current-name (list "(" 'conda-env-current-name ")") "")))
@@ -29,4 +27,6 @@
 ;; Respect HRL's CA
 ;; See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/non-standard-certs.html
 (setenv "REQUESTS_CA_BUNDLE" (expand-file-name "~/etc/HRLRootCABundle.pem"))
+
+(provide 'mdc-conda)
 

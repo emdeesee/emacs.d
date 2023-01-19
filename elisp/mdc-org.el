@@ -4,7 +4,7 @@
       org-startup-indented t
       org-hide-leading-stars t
       org-agenda-files (list org-directory)
-      org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p@/!)" "|" "DONE(d!)")
+      org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p!)" "|" "DONE(d!)")
                           (sequence  "HOLD(h@/!)" "BLOCKED(b@/!)" "|" "CANCELLED(c!)"))
       org-todo-keyword-faces '(("TODO" . (:foreground "deep sky blue"))
                                ("PROG" . (:foreground "medium violet red" :weight bold))
@@ -42,7 +42,13 @@
 
 (let ((organizer (concat org-directory "organizer.org"))
       (journal (concat org-directory "journal.org"))
-      (glossary (concat org-directory "glossary.org")))
+      (glossary (concat org-directory "glossary.org"))
+      (phone-interview-target (expand-file-name "~/tmp/phone-interview-invitation.org"))
+      (phone-interview-template (expand-file-name "~/Documents/phone-screen-template.txt"))
+      (coding-exercise-target (expand-file-name "~/tmp/coding-exercise-invitation.org"))
+      (coding-exercise-template (expand-file-name "~/Documents/coding-exercise-template.txt"))
+      (ref-check-target (expand-file-name "~/tmp/ref-check-outreach-email.org"))
+      (ref-check-template (expand-file-name "~/Documents/ref-check-outreach-template.txt")))
   (setq org-capture-templates
         `(("t" "Todo" entry (file+olp ,organizer "Tasks")
           "* TODO %?\n  %i\n  %a")
@@ -57,7 +63,19 @@
           ("b" "Bookmark" entry (file+olp+headline ,journal "Bookmarks")
            "* %^{Title}\n  %U\n  %i\n %^{URL}")
           ("g" "Glossary" item (file ,glossary)
-           "- %^{Term} :: %^{Definition}"))))
+           "- %^{Term} :: %^{Definition}")
+          ("p" "Phone Interview Email" plain
+           (file ,phone-interview-target)
+           (file ,phone-interview-template)
+           :prepend t :jump-to-captured t :empty-after 2)
+          ("x" "Practical Exercise Email" plain
+           (file ,coding-exercise-target)
+           (file ,coding-exercise-template)
+           :prepend t :jump-to-captured t :empty-after 2)
+          ("r" "Reference Check Outreach" plain
+           (file ,ref-check-target)
+           (file ,ref-check-template)
+           :prepend t :jump-to-captured t :empty-after 2))))
 
 ;; Time tracking
 (setq org-clock-persist 'history)
