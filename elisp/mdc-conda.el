@@ -24,9 +24,5 @@
                (list 'mode-line-conda-env)
                (cl-subseq mode-line-format 6)))
 
-;; Respect HRL's CA
-;; See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/non-standard-certs.html
-(setenv "REQUESTS_CA_BUNDLE" (expand-file-name "~/etc/HRLRootCABundle.pem"))
-
 (provide 'mdc-conda)
 
