@@ -6,6 +6,8 @@
 (global-set-key (kbd "C-c f ?") (rage! "?"))
 (global-set-key (kbd "C-c f !") (rage! "!"))
 
+(setq browse-url-browser-function 'eww)
+
 (use-package tron-legacy-theme
   :ensure t
   :config
