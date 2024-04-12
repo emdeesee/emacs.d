@@ -93,4 +93,10 @@
 (advice-add 'org-clocktable-indent-string
             :override #'mdc/org-clocktable-indent-string)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (lisp . t)
+   (shell . t)))
+
 (provide 'mdc-org)

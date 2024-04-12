@@ -12,11 +12,11 @@
     string))
 
 (with-eval-after-load 'em-prompt
-  (add-function :filter-return eshell-prompt-function #'prepend-conda-env '((name . conda-env)))
+  (add-function :filter-return eshell-prompt-function #'prepend-conda-env '((name . conda-env))))
 
 ;; Splice environment into mode line.
 (setq mode-line-conda-env
-      (list 'conda-env-current-name (list "(" 'conda-env-current-name ")") "")))
+      (list 'conda-env-current-name (list "(" 'conda-env-current-name ")") ""))
 
 (setq-default mode-line-format
               (append

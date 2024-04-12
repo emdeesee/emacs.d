@@ -6,7 +6,8 @@
   (setq-local whitespace-style '(face trailing tabs))
   (hl-line-mode 1)
   (whitespace-mode 1)
-  (display-line-numbers-mode 1))
+  (display-line-numbers-mode 1)
+  (flycheck-mode))
 
 (let ((coding-modes '(c-mode-common
                       python-mode

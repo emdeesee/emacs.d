@@ -74,3 +74,9 @@ form as the second argument in the current.
     (when new-kill-string
       (message "%s copied" new-kill-string)
       (kill-new new-kill-string))))
+
+(defun setenv-from-file (var path)
+  (interactive "sEnvironment variable: \nfFilename: ")
+  (with-temp-buffer
+    (insert-file path)
+    (setenv var (string-trim (buffer-string)))))
