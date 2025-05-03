@@ -20,3 +20,5 @@ games/*
 network-security.data
 org-persist/
 .org-id-locations
+eln-cache/*
+
