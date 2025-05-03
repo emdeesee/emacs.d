@@ -74,3 +74,11 @@ form as the second argument in the current.
     (when new-kill-string
       (message "%s copied" new-kill-string)
       (kill-new new-kill-string))))
+
+(defun mdc/running-in-wsl-p ()
+  "Detect whether emacs is running in WSL."
+  (and (eq system-type 'gnu/linux)
+       (with-temp-buffer
+         (insert-file-contents "/proc/version")
+         (goto-char (point-min))
+         (re-search-forward "Microsoft\\|WSL" nil t))))
