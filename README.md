@@ -6,18 +6,19 @@ To have a sharp axe wherever I happen to set up shop.
 
 ## Organization
 
-Use *require-package* to ensure the presence of known set of desired packages.
+Use `require-package` to ensure the presence of known set of desired packages.
 
-*init.el* contain basic configuration and logic to bootstrap the rest of the configuration
+`init.el` contain basic configuration and logic to bootstrap the rest of the configuration.
 
-Per-module and personal configuration code is kept in *elisp*
+Per-module and personal configuration code is kept in `elisp`.
 
-Local, installation-specific code lives in ```elisp/mdc-local.el```. This file is not required to exist, so only needs to be created if needed.
 
-External dependencies, such as packages loaded through package system, repositories cloned from GitHub, etc., are put in an outside directory, ```~/lib/emacs/``` to minimize interaction with revision control.
+Local, installation-specific code lives in `elisp/mdc-local.el`. This file is not required to exist, so only needs to be created if needed.
+
+External dependencies, such as packages loaded through package system, repositories cloned from GitHub, etc., are put in an outside directory, `~/lib/emacs/` to minimize interaction with revision control.
 
 ## License
-Copyright © 2022 Michael Cornelius
+Copyright © 2025 Michael Cornelius
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
