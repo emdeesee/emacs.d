@@ -1,8 +1,17 @@
 (require 'org)
 
+(use-package org-bullets
+  :ensure t
+  :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+(font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-+]\\) *[^ ]"
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
 (setq org-directory "~/Org/"
       org-startup-indented t
       org-hide-leading-stars t
+      org-hide-emphasis-markers t
       org-agenda-files (list org-directory)
       org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p@/!)" "|" "DONE(d!)")
                           (sequence  "HOLD(h@/!)" "BLOCKED(b@/!)" "|" "CANCELLED(c!)"))
@@ -74,5 +83,12 @@
 
 (advice-add 'org-clocktable-indent-string
             :override #'mdc/org-clocktable-indent-string)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((lisp . t)
+   (python . t)))
+
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.2))
 
 (provide 'mdc-org)
