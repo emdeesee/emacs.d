@@ -16,3 +16,4 @@ transient/*
 server/*
 bookmarks
 request/*
+eln-cache/*
