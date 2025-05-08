@@ -1,10 +1,5 @@
-(add-to-list 'load-path "~/lib/emacs/site-lisp/magit/lisp")
-(require 'magit)
-
-(with-eval-after-load 'info
-  (info-initialize)
-  (add-to-list 'Info-directory-list
-               "~/lib/emacs/site-lisp/magit/Documentation/"))
+(provide 'mdc-magit)
+(use-package magit)
 
 ;; TODO Limit keys to appropriate buffers
 (defconst mdc/magit-prefix "\C-cg")

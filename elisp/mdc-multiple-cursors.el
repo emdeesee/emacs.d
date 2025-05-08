@@ -1,2 +1,2 @@
 (provide 'mdc-multiple-cursors)
-(use-package multiple-cursors :ensure t)
+(use-package multiple-cursors)

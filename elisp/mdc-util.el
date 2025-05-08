@@ -1,6 +1,6 @@
 (provide 'mdc-util)
-(use-package s :ensure t)
-(use-package cl-format :ensure t)
+(use-package s)
+(use-package cl-format)
 
 (defmacro mdc/in-directory (dir &rest body)
   "Change to directory DIR, and evaluate BODY there like `progn'."
