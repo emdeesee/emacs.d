@@ -2,10 +2,10 @@
 (require 'mdc-lisp)
 
 (use-package smartparens
-  :ensure t
+  :straight t
   :config
   (progn
-    (use-package smartparens-config)
+    (require 'smartparens-config)
     (smartparens-global-mode t)
     (show-smartparens-global-mode t)
     (add-lisp-hook 'smartparens-strict-mode)

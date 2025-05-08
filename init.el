@@ -2,6 +2,9 @@
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode blink-cursor-mode))
   (when (fboundp mode) (funcall mode -1)))
 
+;; We're not using package; we're using straight.el.
+(setq package-enable-at-startup nil)
+
 (setq inhibit-splash-screen t)
 (setq-default indent-tabs-mode nil)
 
@@ -41,25 +44,26 @@
 (setq autoload-file (concat external-config-dir "loaddefs.el"))
 (setq custom-file (concat external-config-dir "custom.el"))
 
-;; Configure and initialize package.el
-(setq package-user-dir (concat external-config-dir "packages"))
+;; ---- Bootstrap straight.el ----
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(require 'package)
-(dolist (package-source '(("melpa" . "https://melpa.org/packages/")))
-  (add-to-list 'package-archives package-source 'append))
-
-(package-initialize)
-(unless (file-exists-p package-user-dir)
-  (package-refresh-contents))
-
-;; Bootstrap use-package if needed
-(defun require-package (package)
-  (when (and (not (package-installed-p package))
-		  (y-or-n-p (format"%s: package missing. Install?" package)))
-      (package-install package))
-  (require package))
-
-(require-package 'use-package)
+;; ---- Install and configure use-package via straight ----
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
 ;; Load personal customizations and things.
 (let ((libs '(mdc-util

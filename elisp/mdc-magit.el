@@ -1,6 +1,5 @@
 (provide 'mdc-magit)
-(use-package magit
-  :ensure t)
+(use-package magit)
 
 ;; TODO Limit keys to appropriate buffers
 (defconst mdc/magit-prefix "\C-cg")
