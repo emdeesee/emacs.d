@@ -18,7 +18,19 @@
   (setq browse-url-browser-function 'browse-url-generic
         browse-url-generic-program
         (or (executable-find "wslview")
-            "/mnt/c/Program Files/Mozilla Firefox/firefox.exe")))
+            "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"))
+
+  (setq interprogram-cut-function
+        (lambda (text &optional _)
+          (let ((process-connection-type nil)) ; use pipe, not pty
+            (let ((proc (start-process "clip.exe" "*Messages*" "clip.exe")))
+              (process-send-string proc text)
+              (process-send-eof proc)))))
+
+  (setq interprogram-paste-function
+        (lambda ()
+          (string-trim
+           (shell-command-to-string "powershell.exe -Command Get-Clipboard")))))
 
 
 (with-eval-after-load 'org
