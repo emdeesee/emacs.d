@@ -86,8 +86,9 @@
               mdc-markdown
               mdc-yaml
               mdc-conda
-              mdc-jinja2)))
-  (mapc #'require libs))
+              mdc-jinja2
+              mdc-elfeed)))
+(mapc #'require libs))
 
 (require 'mdc-local nil :noerror)
 (load custom-file :noerror)
