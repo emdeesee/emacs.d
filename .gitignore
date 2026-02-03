@@ -15,3 +15,7 @@ transient/*
 server/*
 bookmarks
 request/*
+.DS_Store
+games/*
+network-security.data
+org-persist/
