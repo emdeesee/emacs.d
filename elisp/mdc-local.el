@@ -9,35 +9,6 @@
                                  "WA00 Non Project Labor"))
 
 
-(defun mdc/timelog ()
-  (interactive)
-  (let ((timelog-buffer (get-buffer (file-name-nondirectory mdc/timelog-path-name))))
-    (if timelog-buffer
-        (switch-to-buffer timelog-buffer)
-      (find-file mdc/timelog-path-name))))
-
-
-; Open timelog on startup
-(mdc/timelog)
-
-
-(defun mdc/org-clocktable-min-to-frac (min)
-  (/ (round (/ min 6.0)) 10.0))
-
-
-(defun mdc/org-clocktable-to-decimal-hours (time-value)
-  "HRL wants time reported in decimal hours. Convert a string with
-the format HH:MM to a decimal value of hours."
-  (if (zerop (length time-value))
-      ""
-    (let ((values (split-string time-value ":")))
-      (when (= (length values) 2)
-        (let ((hours (string-to-number (car values)))
-              (minutes (string-to-number (cadr values))))
-          (+ hours (mdc/org-clocktable-min-to-frac minutes)))))))
-
-
-;;; Experimental: https://bzg.fr/en/emacs-strip-tease/
 (setq visible-bell 1
       initial-scratch-message ""
       inhibit-startup-message t
