@@ -7,7 +7,23 @@
                           '(("^ *\\([-+]\\) *[^ ]"
                              (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
-(setq org-directory "~/Org/"
+(defconst mdc/org-directory
+  (let ((dir (getenv "ORG_DIR")))
+    (unless dir
+      (display-warning
+       'mdc-config
+       "Environment variable ORG_DIR is not set. Falling back to ~/Org/"
+       :warning)
+      (setq dir "~/Org/"))
+    (file-name-as-directory (expand-file-name dir))))
+
+(unless (file-directory-p mdc/org-directory)
+  (display-warning
+   'mdc-config
+   (format "ORG_DIR directory does not exist: %s" mdc/org-directory)
+   :warning))
+
+(setq org-directory mdc/org-directory
       org-startup-indented t
       org-hide-leading-stars t
       org-log-done 'time
