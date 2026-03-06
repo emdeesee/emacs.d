@@ -28,7 +28,6 @@
       org-hide-leading-stars t
       org-log-done 'time
       org-hide-emphasis-markers t
-      org-agenda-files (list org-directory)
       org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p@/!)" "|" "DONE(d!)")
                           (sequence  "HOLD(h@/!)" "BLOCKED(b@/!)" "TRACK" "|" "CANCELED(c!)")
                           (sequence "MEET" "MET" "|" "CANCELED" "NOSHOW"))
@@ -55,10 +54,8 @@
                                     tags
                                     "TODO=\"DONE\"&CLOSED>=\"<-7d>\""
                                     ((org-agenda-overriding-header "DONE items closed in the last seven days")
-                                     (org-agenda-sorting-strategy '(timestamp-down priority-down))))
-                                   ("t" "TODO (excluding daily)"
-                                    tags-todo "-daily"
-                                    ((org-agenda-overriding-header "Active TODOs (no dailies)")))))
+                                     (org-agenda-sorting-strategy '(timestamp-down priority-down))))))
+
 
 (add-to-list 'org-agenda-files org-directory)
 
