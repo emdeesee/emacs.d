@@ -89,8 +89,8 @@
   (setq org-capture-templates
         `(("t" "Todo" entry (file+olp ,organizer "Tasks")
           "* TODO %?\n  %i\n  %a")
-          ("a" "Appointment" entry (file+olp ,organizer "Events")
-           "* %?\n%^T %^{Description}p %^{Location}p %^{Summary}p %^g")
+          ("a" "Appointment" entry (file+headline ,organizer "Events")
+           "* MEET %^{Description}	%^g\nSCHEDULED: %^T %^{Location}p %^{PoC}p")
           ("n" "Note" entry (file+olp+datetree ,org-default-notes-file "Notes")
            "* %?\n  %i\n  %a")
           ("j" "Journal" entry (file+olp+datetree ,journal "Journal")
