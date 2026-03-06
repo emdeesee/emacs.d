@@ -29,15 +29,19 @@
       org-log-done 'time
       org-hide-emphasis-markers t
       org-agenda-files (list org-directory)
-      org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p!)" "|" "DONE(d!)") ; active tasks
-                          (sequence  "TRACK(k@/!)" "HOLD(h@/!)" "BLKD(b@/!)" "|" "CANCELED(c!)") ; inactive tasks
-                          (sequence "MEET" "|" "MET" "NO-SHOW@" "CANCELED")) ; events/meetings
+      org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p@/!)" "|" "DONE(d!)")
+                          (sequence  "HOLD(h@/!)" "BLOCKED(b@/!)" "TRACK" "|" "CANCELED(c!)")
+                          (sequence "MEET" "MET" "|" "CANCELED" "NOSHOW"))
       org-todo-keyword-faces '(("TODO" . (:foreground "deep sky blue"))
                                ("PROG" . (:foreground "medium violet red" :weight bold))
                                ("DONE" . (:foreground "forest green"))
                                ("TRACK" . (:foreground "medium orchid"))
                                ("HOLD" . (:foreground "goldenrod"))
                                ("BLOCKED" . (:foreground "red" :weight bold))
+                               ("MEET" . (:foreground "aqua"))
+                               ("MET" . (:foreground "forest green"))
+                               ("TRACK" . (:foreground "light steel blue"))
+                               ("NOSHOW" . (:foreground "orange red"))
                                ("CANCELED" . (:foreground "gray50")))
       org-agenda-custom-commands '(("n" "Personal Backlog"
                                     ((agenda "" nil)
