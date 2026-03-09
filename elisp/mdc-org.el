@@ -46,9 +46,8 @@
                                     ((agenda "" nil)
                                      (todo "PROG")
                                      (todo "NEXT")
-                                     (tags-todo "-daily/+TODO")
-                                     (todo "TRACK|HOLD")
-                                     (todo "BLOCKED"))
+                                     (tags "TODO=\"TODO\"-daily")
+                                     (todo "BLOCKED|TRACK|HOLD"))
                                     nil)
                                    ("w" "Recently Completed"
                                     tags
