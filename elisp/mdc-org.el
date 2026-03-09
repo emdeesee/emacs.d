@@ -40,7 +40,7 @@
                                ("BLOCKED" . (:foreground "red" :weight bold))
                                ("MEET" . (:foreground "aqua"))
                                ("MET" . (:foreground "forest green"))
-                               ("TRACK" . (:foreground "light steel blue"))
+                               ("TRACK" . (:foreground "light sky blue"))
                                ("NOSHOW" . (:foreground "orange red"))
                                ("CANCELED" . (:foreground "gray50")))
       org-agenda-custom-commands '(("n" "Personal Backlog"
