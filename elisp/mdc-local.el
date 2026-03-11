@@ -48,11 +48,8 @@
          (define-key flyspell-mouse-map [mouse-3] #'undefined))))))
 
 (defun mdc/-environment-config ()
-  (let ((root-ca-bundle-file-name (expand-file-name "~/hrlconda_cabundle.pem")))
-    ;; TODO ** delete or reenable!! **
-    (unless nil
-      (dolist (var '("CURL_CA_BUNDLE" "REQUESTS_CA_BUNDLE"))
-        (setenv var root-ca-bundle-file-name))))
+  (with-eval-after-load 'gnutls
+    (add-to-list 'gnutls-trustfiles (expand-file-name "~/etc/HRLCABundle.pem")))
 
   (dolist (env-data
            '(("GITLAB_PRIVATE_TOKEN" . "~/.gltok")
