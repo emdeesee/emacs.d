@@ -3,22 +3,34 @@
 (setq org-directory "~/Org/"
       org-startup-indented t
       org-hide-leading-stars t
+      org-log-done 'time
       org-agenda-files (list org-directory)
-      org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p!)" "|" "DONE(d!)")
-                          (sequence  "HOLD(h@/!)" "BLOCKED(b@/!)" "|" "CANCELLED(c!)"))
+      org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p!)" "|" "DONE(d!)") ; active tasks
+                          (sequence  "TRACK(k@/!)" "HOLD(h@/!)" "BLKD(b@/!)" "|" "CANCELED(c!)") ; inactive tasks
+                          (sequence "MEET" "|" "MET" "NO-SHOW@" "CANCELED")) ; events/meetings
       org-todo-keyword-faces '(("TODO" . (:foreground "deep sky blue"))
                                ("PROG" . (:foreground "medium violet red" :weight bold))
                                ("DONE" . (:foreground "forest green"))
-                               ("HOLD" . (:foreground "gold"))
+                               ("TRACK" . (:foreground "medium orchid"))
+                               ("HOLD" . (:foreground "goldenrod"))
                                ("BLOCKED" . (:foreground "red" :weight bold))
-                               ("CANCELLED" . (:foreground "gray50")))
+                               ("CANCELED" . (:foreground "gray50")))
       org-agenda-custom-commands '(("n" "Personal Backlog"
                                     ((agenda "" nil)
                                      (todo "PROG")
                                      (todo "NEXT")
-                                     (todo "TODO")
+                                     (tags-todo "-daily/+TODO")
+                                     (todo "TRACK|HOLD")
                                      (todo "BLOCKED"))
-                                    nil)))
+                                    nil)
+                                   ("w" "Recently Completed"
+                                    tags
+                                    "TODO=\"DONE\"&CLOSED>=\"<-7d>\""
+                                    ((org-agenda-overriding-header "DONE items closed in the last seven days")
+                                     (org-agenda-sorting-strategy '(timestamp-down priority-down))))
+                                   ("t" "TODO (excluding daily)"
+                                    tags-todo "-daily"
+                                    ((org-agenda-overriding-header "Active TODOs (no dailies)")))))
 
 (add-to-list 'org-agenda-files org-directory)
 
