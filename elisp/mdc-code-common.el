@@ -19,3 +19,5 @@
   (add-hooks coding-modes 'common-coding-config))
 
 (add-lisp-hook 'common-coding-config)
+
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
