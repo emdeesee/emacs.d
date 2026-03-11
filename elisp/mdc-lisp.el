@@ -2,8 +2,6 @@
 (require 'mdc-common)
 (require 'mdc-local nil :noerror)
 
-(use-package clojure-mode :ensure t)
-(use-package cider :ensure t)
 (use-package slime
   :ensure t
   :config (progn
