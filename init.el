@@ -81,7 +81,8 @@
               mdc-gud
               mdc-markdown
               mdc-yaml
-              mdc-conda)))
+              mdc-conda
+              mdc-jinja2)))
   (mapc #'require libs))
 
 (require 'mdc-local nil :noerror)
