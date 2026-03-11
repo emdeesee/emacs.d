@@ -31,7 +31,7 @@
       org-agenda-files (list org-directory)
       org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p!)" "|" "DONE(d!)")
                           (sequence  "HOLD(h@/!)" "BLOCKED(b@/!)" "TRACK(r@/!)" "|" "CANCELED(c!)")
-                          (sequence "MEET" "|" "MET" "CNCLD(a@)" "NOSHOW(o@)"))
+                          (sequence "MEET" "|" "MET" "SKIPPED(s@)" "CNCLD(a@)" "NOSHOW(o@)"))
       org-todo-keyword-faces '(("TODO" . (:foreground "deep sky blue"))
                                ("PROG" . (:foreground "medium violet red" :weight bold))
                                ("DONE" . (:foreground "forest green"))
@@ -41,6 +41,7 @@
                                ("MEET" . (:foreground "aqua"))
                                ("MET" . (:foreground "forest green"))
                                ("TRACK" . (:foreground "light sky blue"))
+                               ("SKIPPED" . (:foreground "gray50"))
                                ("NOSHOW" . (:foreground "orange red"))
                                ("CANCELED" . (:foreground "gray50")))
       org-agenda-custom-commands '(("n" "Personal Backlog"
