@@ -11,6 +11,15 @@
       (concat (format "(%s) " conda-env-current-name) string)
     string))
 
+(defun mdc/eshell-set-path (path-list)
+  "Set eshell's internal conception of the search path to PATH-LIST."
+  (with-connection-local-application-variables 'eshell
+    (setq-connection-local eshell-path-env-list path-list)))
+
+(mapc (lambda (sym) (advice-add sym :after
+                                (lambda (&rest args) (mdc/eshell-set-path exec-path))))
+      '(conda-env-activate-path conda-env-deactivate))
+
 (with-eval-after-load 'em-prompt
   (add-function :filter-return eshell-prompt-function #'prepend-conda-env '((name . conda-env))))
 
