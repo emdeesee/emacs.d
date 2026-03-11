@@ -1,7 +1,7 @@
 (use-package conda :ensure t
   :config
   (setq
-   conda-anaconda-home (expand-file-name "~/opt/hrlconda/")
+   conda-anaconda-home (expand-file-name "~/hrlconda/")
    conda-env-home-directory (expand-file-name "~/.conda/"))
   (conda-env-initialize-interactive-shells)
   (conda-env-initialize-eshell))
