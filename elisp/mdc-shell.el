@@ -1,5 +1,10 @@
 (provide 'mdc-shell)
 
+(setq eshell-visual-subcommands
+      '(("conda" "install" "create" "env" "update")
+        ("git" "log" "diff" "show")
+        ("docker" "pull")))
+
 (defun eshell/clear-buffer ()
   (interactive)
   (let ((inhibit-read-only t))
