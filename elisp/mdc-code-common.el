@@ -2,6 +2,9 @@
 (require 'mdc-common)
 (require 'mdc-lisp)
 
+(use-package flycheck
+  :ensure t)
+
 (defun common-coding-config ()
   (setq-local whitespace-style '(face trailing tabs))
   (hl-line-mode 1)
