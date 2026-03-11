@@ -1,14 +1,5 @@
 (provide 'mdc-local)
 
-;;; HRL Timekeeping
-
-;; TODO Further timekeeping efficiencies.
-
-(setq mdc/timelog-path-name (expand-file-name "~/Documents/timelog.org")
-      mdc/timelog-charge-codes '("B1AB Kessel Software Support and DevOps"
-                                 "WA00 Non Project Labor"))
-
-
 (setq visible-bell 1
       initial-scratch-message ""
       inhibit-startup-message t
