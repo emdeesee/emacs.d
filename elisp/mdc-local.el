@@ -41,6 +41,7 @@
 
    ((eq system-type 'darwin)
     (setq ispell-program-name "aspell")
+    (setq dired-use-ls-dired nil)
     (eval-after-load "flyspell"
       '(progn
          (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
