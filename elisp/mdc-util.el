@@ -78,5 +78,5 @@ form as the second argument in the current.
 (defun setenv-from-file (var path)
   (interactive "sEnvironment variable: \nfFilename: ")
   (with-temp-buffer
-    (insert-file path)
+    (insert-file-contents path)
     (setenv var (string-trim (buffer-string)))))
