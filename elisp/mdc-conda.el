@@ -6,7 +6,7 @@
   (conda-env-initialize-interactive-shells)
   (conda-env-initialize-eshell))
 
-(defun prepend-conda-env (string)
+(defun mdc/prepend-conda-env (string)
   (if conda-env-current-name
       (concat (format "(%s) " conda-env-current-name) string)
     string))
@@ -21,7 +21,7 @@
       '(conda-env-activate-path conda-env-deactivate))
 
 (with-eval-after-load 'em-prompt
-  (add-function :filter-return eshell-prompt-function #'prepend-conda-env '((name . conda-env))))
+  (add-function :filter-return eshell-prompt-function #'mdc/prepend-conda-env '((name . conda-env))))
 
 ;; Splice environment into mode line.
 (setq mode-line-conda-env
